@@ -1,0 +1,11 @@
+{
+  "eval_id": 0,
+  "config": "with_skill",
+  "expectations": [
+    {"text": "Does NOT jump straight to writing implementation code", "passed": true, "evidence": "Opens with 'Before we jump into building anything' and produces zero implementation code"},
+    {"text": "Asks clarifying questions about requirements, success criteria, or constraints before implementing", "passed": true, "evidence": "13 detailed questions across Registration, Event Delivery, Security, Infrastructure, and Scope Boundaries"},
+    {"text": "Explicitly mentions writing a spec, specification, or requirements document", "passed": true, "evidence": "'Write a spec (SPEC.md) capturing the full feature definition, success criteria, non-goals, constraints, and edge cases'"},
+    {"text": "Asks about or mentions non-goals / out-of-scope items", "passed": true, "evidence": "Dedicated 'Scope Boundaries' section asking about extensibility and admin tooling scope"},
+    {"text": "Proposes a structured workflow (spec then plan then build) rather than ad-hoc implementation", "passed": true, "evidence": "Explicit 6-step pipeline: Write spec → Get approval → Brainstorm → Write plan → Build with tests → Verify"}
+  ]
+}

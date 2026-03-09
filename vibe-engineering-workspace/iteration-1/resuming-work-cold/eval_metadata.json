@@ -1,0 +1,32 @@
+{
+  "eval_id": 2,
+  "eval_name": "resuming-work-cold",
+  "prompt": "Hey, I was working on the payment processing integration yesterday but had to stop. I think I left some notes somewhere. Can you help me pick up where I left off?",
+  "assertions": [
+    {
+      "id": "checks-memory",
+      "text": "Proposes checking memory files, MEMORY.md, handoff notes, or persistent context before acting",
+      "type": "boolean"
+    },
+    {
+      "id": "systematic-orient",
+      "text": "Follows a systematic orientation protocol (check state, understand last action, identify next steps) rather than just grepping randomly",
+      "type": "boolean"
+    },
+    {
+      "id": "checks-git",
+      "text": "Checks git history/status/recent commits to understand what was done",
+      "type": "boolean"
+    },
+    {
+      "id": "no-assumptions",
+      "text": "Does NOT assume or fabricate what the user was working on — asks or investigates first",
+      "type": "boolean"
+    },
+    {
+      "id": "mentions-handoff",
+      "text": "References the concept of session handoff, context restoration, or resumption protocol",
+      "type": "boolean"
+    }
+  ]
+}

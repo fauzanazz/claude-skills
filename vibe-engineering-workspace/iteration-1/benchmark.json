@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "skill_name": "vibe-engineering",
+    "skill_path": "/Users/enjat/.claude/skills/vibe-engineering",
+    "executor_model": "claude-opus-4-6",
+    "analyzer_model": "claude-opus-4-6",
+    "timestamp": "2026-03-07T11:00:00Z",
+    "evals_run": ["feature-without-spec", "architecture-guidance", "resuming-work-cold"],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 0,
+      "eval_name": "feature-without-spec",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "total": 5,
+        "time_seconds": 46.7,
+        "tokens": 14524,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Does NOT jump straight to writing implementation code", "passed": true, "evidence": "Opens with 'Before we jump into building anything' and produces zero implementation code"},
+        {"text": "Asks clarifying questions about requirements", "passed": true, "evidence": "13 detailed questions across Registration, Event Delivery, Security, Infrastructure, and Scope Boundaries"},
+        {"text": "Explicitly mentions writing a spec", "passed": true, "evidence": "'Write a spec (SPEC.md) capturing the full feature definition'"},
+        {"text": "Asks about or mentions non-goals", "passed": true, "evidence": "Dedicated 'Scope Boundaries' section asking about extensibility and admin tooling scope"},
+        {"text": "Proposes structured workflow (spec then plan then build)", "passed": true, "evidence": "Explicit 6-step pipeline: Write spec > Get approval > Brainstorm > Write plan > Build with tests > Verify"}
+      ]
+    },
+    {
+      "eval_id": 0,
+      "eval_name": "feature-without-spec",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "total": 5,
+        "time_seconds": 45.6,
+        "tokens": 14674,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Does NOT jump straight to writing implementation code", "passed": false, "evidence": "Proposes detailed DB schema, 6 API endpoints, WebhookDispatcher class design before any spec"},
+        {"text": "Asks clarifying questions about requirements", "passed": true, "evidence": "6 questions about location, storage, auth, event types, retry policy, and security"},
+        {"text": "Explicitly mentions writing a spec", "passed": false, "evidence": "Never mentions writing a spec — goes directly from questions to 'Proposed Approach'"},
+        {"text": "Asks about or mentions non-goals", "passed": false, "evidence": "No mention of non-goals, scope boundaries, or what to exclude"},
+        {"text": "Proposes structured workflow (spec then plan then build)", "passed": false, "evidence": "Ends with 'I will start coding immediately'"}
+      ]
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "architecture-guidance",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "total": 5,
+        "time_seconds": 79.9,
+        "tokens": 17264,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Recommends contracts-first approach", "passed": true, "evidence": "Dedicated 'Contracts First' section with contracts/ directory containing api.openapi.yaml and types.ts"},
+        {"text": "Recommends domain-based directory structure", "passed": true, "evidence": "src/inventory/ and src/orders-integration/ grouping with explicit comparison to layer-based"},
+        {"text": "Mentions golden paths or standardized patterns", "passed": true, "evidence": "PATTERNS.md file and templates/new-endpoint.ts.template"},
+        {"text": "Mentions self-documenting naming or README breadcrumbs", "passed": true, "evidence": "[domain].[layer].ts naming convention; README breadcrumbs in checklist"},
+        {"text": "Explains WHY patterns help AI specifically", "passed": true, "evidence": "Dedicated 'Why This Structure Works Well With AI Tools' section with 8 numbered explanations"}
+      ]
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "architecture-guidance",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "total": 5,
+        "time_seconds": 44.5,
+        "tokens": 6505,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Recommends contracts-first approach", "passed": true, "evidence": "Shows explicit TypeScript interfaces; mentions 'contract readable from a single file'"},
+        {"text": "Recommends domain-based directory structure", "passed": false, "evidence": "Uses layer-based structure: routes/, handlers/, services/, repositories/, models/"},
+        {"text": "Mentions golden paths or standardized patterns", "passed": false, "evidence": "No mention of golden paths, templates, or standardized component-adding patterns"},
+        {"text": "Mentions self-documenting naming or README breadcrumbs", "passed": true, "evidence": "Mentions CLAUDE.md, .env.example; says 'make everything discoverable and explicit'"},
+        {"text": "Explains WHY patterns help AI specifically", "passed": true, "evidence": "Summary table mapping each practice to 'Why it helps AI tools'"}
+      ]
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "resuming-work-cold",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "total": 5,
+        "time_seconds": 75.9,
+        "tokens": 27465,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Checks memory files, MEMORY.md, or handoff notes", "passed": true, "evidence": "Explicitly states 'reading MEMORY.md, checking progress files, searching for handoff notes'"},
+        {"text": "Follows systematic orientation protocol", "passed": true, "evidence": "Named 'Session Start Protocol' checking 6 sources in order"},
+        {"text": "Checks git history/status", "passed": true, "evidence": "Checked git branch and working tree status"},
+        {"text": "Does NOT assume or fabricate prior context", "passed": true, "evidence": "'No recoverable context exists' — presents findings honestly"},
+        {"text": "References session handoff or context restoration concept", "passed": true, "evidence": "'Session Start Protocol from the Vibe Engineering memory management guide'"}
+      ]
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "resuming-work-cold",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "total": 5,
+        "time_seconds": 62.5,
+        "tokens": 32423,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Checks memory files, MEMORY.md, or handoff notes", "passed": true, "evidence": "Checked kanban board, project docs, notes files, and codebase"},
+        {"text": "Follows systematic orientation protocol", "passed": true, "evidence": "Systematic 6-source search"},
+        {"text": "Checks git history/status", "passed": true, "evidence": "Checked git history, branches, stashes, working tree"},
+        {"text": "Does NOT assume or fabricate prior context", "passed": true, "evidence": "Presents findings and asks clarifying questions"},
+        {"text": "References session handoff or context restoration concept", "passed": false, "evidence": "No mention of handoff protocol or memory management concepts — just ad-hoc investigation"}
+      ]
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {"mean": 1.0, "stddev": 0.0},
+      "time_seconds": {"mean": 67.5, "stddev": 14.5},
+      "tokens": {"mean": 19751, "stddev": 5400}
+    },
+    "without_skill": {
+      "pass_rate": {"mean": 0.533, "stddev": 0.249},
+      "time_seconds": {"mean": 50.9, "stddev": 8.2},
+      "tokens": {"mean": 17867, "stddev": 10700}
+    },
+    "delta": {
+      "pass_rate": "+0.467",
+      "time_seconds": "+16.6",
+      "tokens": "+1884"
+    }
+  },
+  "notes": [
+    "Biggest skill impact on feature-without-spec: +80% pass rate — baseline jumps to implementation",
+    "Architecture eval: skill adds golden paths and domain-based structure that baseline misses",
+    "Resume-work eval: smallest delta (+20%) — Claude already investigates well, skill adds handoff protocol framing",
+    "Skill adds ~17s overhead on average from reading reference files — acceptable tradeoff for quality"
+  ]
+}

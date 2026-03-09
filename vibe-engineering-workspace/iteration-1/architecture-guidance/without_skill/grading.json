@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "config": "without_skill",
+  "expectations": [
+    {"text": "Recommends defining contracts/interfaces/schemas (OpenAPI, TypeScript interfaces, protobuf) before implementation", "passed": true, "evidence": "Shows explicit TypeScript interfaces for InventoryItem and InventoryService; mentions 'contract readable from a single file'"},
+    {"text": "Recommends domain-based directory structure over type-based", "passed": false, "evidence": "Uses layer-based structure: routes/, handlers/, services/, repositories/, models/ as separate directories"},
+    {"text": "Mentions golden paths, standardized patterns, or one sanctioned way to add components", "passed": false, "evidence": "No mention of golden paths, templates, or standardized component-adding patterns"},
+    {"text": "Mentions self-documenting naming, README breadcrumbs, or explicit-over-implicit patterns", "passed": true, "evidence": "Mentions descriptive file naming, CLAUDE.md, .env.example; says 'make everything discoverable and explicit'"},
+    {"text": "Explains WHY these patterns help AI specifically (not just general best practices)", "passed": true, "evidence": "Summary table mapping each practice to 'Why it helps AI tools'; inline explanations like 'AI tools navigate by file names and grep'"}
+  ]
+}

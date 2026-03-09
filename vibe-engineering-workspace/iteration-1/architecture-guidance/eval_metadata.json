@@ -1,0 +1,32 @@
+{
+  "eval_id": 1,
+  "eval_name": "architecture-guidance",
+  "prompt": "I'm starting a brand new TypeScript microservice for inventory management. It'll talk to our existing orders service via REST. What's the best way to structure the project so it's easy to work with using AI tools like Claude Code?",
+  "assertions": [
+    {
+      "id": "contracts-first",
+      "text": "Recommends defining contracts/interfaces/schemas (OpenAPI, TypeScript interfaces, protobuf) before implementation",
+      "type": "boolean"
+    },
+    {
+      "id": "domain-structure",
+      "text": "Recommends domain-based directory structure over type-based (e.g., group by feature not by layer)",
+      "type": "boolean"
+    },
+    {
+      "id": "golden-paths",
+      "text": "Mentions golden paths, standardized patterns, or one sanctioned way to add components",
+      "type": "boolean"
+    },
+    {
+      "id": "self-documenting",
+      "text": "Mentions self-documenting naming, README breadcrumbs, or explicit-over-implicit patterns",
+      "type": "boolean"
+    },
+    {
+      "id": "ai-specific-reasoning",
+      "text": "Explains WHY these patterns help AI specifically (not just general best practices)",
+      "type": "boolean"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "config": "with_skill",
+  "expectations": [
+    {"text": "Proposes checking memory files, MEMORY.md, handoff notes, or persistent context before acting", "passed": true, "evidence": "Explicitly states 'reading MEMORY.md, checking progress files, searching for handoff notes'"},
+    {"text": "Follows a systematic orientation protocol rather than just grepping randomly", "passed": true, "evidence": "Follows named 'Session Start Protocol' checking 6 sources in order: MEMORY.md, Kanban, Completed tasks, Codebase search, Handoff files, Git branch"},
+    {"text": "Checks git history/status/recent commits to understand what was done", "passed": true, "evidence": "Checked 'Git branch — Current branch worktree-merry-twirling-boot is clean with no uncommitted changes'"},
+    {"text": "Does NOT assume or fabricate what the user was working on", "passed": true, "evidence": "'No recoverable context exists for a payment processing integration in progress' — presents findings honestly"},
+    {"text": "References the concept of session handoff, context restoration, or resumption protocol", "passed": true, "evidence": "'Session Start Protocol from the Vibe Engineering memory management guide'; offers to start from Phase 1 so 'there is always a written artifact to resume from'"}
+  ]
+}

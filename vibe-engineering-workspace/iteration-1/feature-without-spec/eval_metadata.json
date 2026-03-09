@@ -1,0 +1,32 @@
+{
+  "eval_id": 0,
+  "eval_name": "feature-without-spec",
+  "prompt": "I need to add a webhook notification system to our Express API. Users should be able to register webhook URLs and we fire events when orders change status. Can you start building this?",
+  "assertions": [
+    {
+      "id": "no-premature-code",
+      "text": "Does NOT jump straight to writing implementation code",
+      "type": "boolean"
+    },
+    {
+      "id": "asks-spec-questions",
+      "text": "Asks clarifying questions about requirements, success criteria, or constraints before implementing",
+      "type": "boolean"
+    },
+    {
+      "id": "mentions-spec",
+      "text": "Explicitly mentions writing a spec, specification, or requirements document",
+      "type": "boolean"
+    },
+    {
+      "id": "mentions-non-goals",
+      "text": "Asks about or mentions non-goals / out-of-scope items",
+      "type": "boolean"
+    },
+    {
+      "id": "structured-approach",
+      "text": "Proposes a structured workflow (spec then plan then build) rather than ad-hoc implementation",
+      "type": "boolean"
+    }
+  ]
+}

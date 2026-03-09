@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "config": "with_skill",
+  "expectations": [
+    {"text": "Recommends defining contracts/interfaces/schemas (OpenAPI, TypeScript interfaces, protobuf) before implementation", "passed": true, "evidence": "Dedicated 'Contracts First' section with contracts/ directory containing api.openapi.yaml and types.ts"},
+    {"text": "Recommends domain-based directory structure over type-based", "passed": true, "evidence": "src/inventory/ and src/orders-integration/ grouping with explicit explanation of why domain-based beats layer-based"},
+    {"text": "Mentions golden paths, standardized patterns, or one sanctioned way to add components", "passed": true, "evidence": "PATTERNS.md file and templates/new-endpoint.ts.template with explanation: 'one right way to add a new endpoint'"},
+    {"text": "Mentions self-documenting naming, README breadcrumbs, or explicit-over-implicit patterns", "passed": true, "evidence": "[domain].[layer].ts naming convention explained; README breadcrumbs in checklist; CLAUDE.md as project root doc"},
+    {"text": "Explains WHY these patterns help AI specifically (not just general best practices)", "passed": true, "evidence": "Dedicated 'Why This Structure Works Well With AI Tools' section with 8 numbered explanations linking each pattern to AI behavior"}
+  ]
+}

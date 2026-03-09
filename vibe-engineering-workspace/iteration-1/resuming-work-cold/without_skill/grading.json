@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "config": "without_skill",
+  "expectations": [
+    {"text": "Proposes checking memory files, MEMORY.md, handoff notes, or persistent context before acting", "passed": true, "evidence": "Checked kanban board, project docs, notes files, and codebase — though didn't specifically name MEMORY.md or handoff notes as concepts"},
+    {"text": "Follows a systematic orientation protocol rather than just grepping randomly", "passed": true, "evidence": "Systematic 6-source search: git history, codebase grep, kanban board, project docs, notes files, working tree status"},
+    {"text": "Checks git history/status/recent commits to understand what was done", "passed": true, "evidence": "Checked 'Git history — No commits, branches, or stashes mentioning payment'"},
+    {"text": "Does NOT assume or fabricate what the user was working on", "passed": true, "evidence": "Presents two possibilities honestly, asks 3 clarifying questions"},
+    {"text": "References the concept of session handoff, context restoration, or resumption protocol", "passed": false, "evidence": "No mention of handoff protocol, session restoration, or memory management concepts — just does ad-hoc investigation"}
+  ]
+}

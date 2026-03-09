@@ -1,0 +1,26 @@
+{
+  "skill_name": "vibe-engineering",
+  "evals": [
+    {
+      "id": 0,
+      "name": "feature-without-spec",
+      "prompt": "I need to add a webhook notification system to our Express API. Users should be able to register webhook URLs and we fire events when orders change status. Can you start building this?",
+      "expected_output": "Should NOT jump to code. Should enforce spec-first: ask about success criteria, non-goals, constraints. Should produce or guide toward a spec document before any implementation.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "name": "architecture-guidance",
+      "prompt": "I'm starting a brand new TypeScript microservice for inventory management. It'll talk to our existing orders service via REST. What's the best way to structure the project so it's easy to work with using AI tools like Claude Code?",
+      "expected_output": "Should reference AI-friendly architecture patterns: contracts-first (OpenAPI), domain-based directory structure, golden paths, self-documenting naming. Should read references/architecture.md.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "resuming-work-cold",
+      "prompt": "Hey, I was working on the payment processing integration yesterday but had to stop. I think I left some notes somewhere. Can you help me pick up where I left off?",
+      "expected_output": "Should reference memory management: check MEMORY.md, look for handoff notes, orient before touching code. Should read references/memory.md and follow session start protocol.",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "eval_id": 0,
+  "config": "without_skill",
+  "expectations": [
+    {"text": "Does NOT jump straight to writing implementation code", "passed": false, "evidence": "Proposes detailed DB schema, 6 API endpoints, WebhookDispatcher class design, and lists 6 files to create — all before any spec or scope agreement"},
+    {"text": "Asks clarifying questions about requirements, success criteria, or constraints before implementing", "passed": true, "evidence": "6 questions about location, storage, auth, event types, retry policy, and security"},
+    {"text": "Explicitly mentions writing a spec, specification, or requirements document", "passed": false, "evidence": "Never mentions writing a spec — goes directly from questions to 'Proposed Approach'"},
+    {"text": "Asks about or mentions non-goals / out-of-scope items", "passed": false, "evidence": "No mention of non-goals, scope boundaries, or what to exclude"},
+    {"text": "Proposes a structured workflow (spec then plan then build) rather than ad-hoc implementation", "passed": false, "evidence": "Workflow is: answer questions → start coding immediately ('I will start coding immediately')"}
+  ]
+}
