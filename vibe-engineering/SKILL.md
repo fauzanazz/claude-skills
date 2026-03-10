@@ -30,6 +30,15 @@ Before anything else, check for prior context:
 
 This takes 10 seconds and prevents duplicate work or lost context from a previous session.
 
+## Model Selection
+
+Use different models for different phases to balance quality and speed:
+
+- **Opus** — Planning phases (Spec, Plan) where architectural thinking and decision quality matter most
+- **Sonnet** — Execution phases (Build, Verify, Ship) where speed matters and the plan provides clear direction
+
+When spawning agents, pass `model: "opus"` for planning/architecture agents and `model: "sonnet"` for implementation/execution agents.
+
 ## The Pipeline
 
 Every piece of work flows through these phases. The skill routes you to the right tool at each step.
@@ -43,7 +52,7 @@ Spec --> Plan --> Build --> Verify --> Ship
          + plan]
 ```
 
-## Phase 1: Spec
+## Phase 1: Spec *(model: opus)*
 
 Before planning or brainstorming, gather a complete specification through a structured interview.
 The spec is the source of truth — every ambiguity left here becomes wasted implementation later.
@@ -67,7 +76,7 @@ user for confirmation. If they want changes, update and confirm again.
 
 **Golden rule: never fill a spec gap by assumption. If you don't know, ask.**
 
-## Phase 2: Plan
+## Phase 2: Plan *(model: opus)*
 
 Once the spec is confirmed, explore approaches before writing a plan.
 
@@ -92,7 +101,7 @@ user and ask for explicit approval before moving to Build.
 
 **Golden rule: never fill a plan gap by assumption. If you're not sure, ask.**
 
-## Phase 3: Build
+## Phase 3: Build *(model: sonnet)*
 
 Execute the plan with guardrails:
 
@@ -101,7 +110,7 @@ Execute the plan with guardrails:
 3. **Small chunks** — each commit should be a testable, reviewable unit
 4. **Commit checkpoints** — every significant change gets its own commit with a clear message
 
-## Phase 4: Verify
+## Phase 4: Verify *(model: sonnet)*
 
 Before claiming anything is done:
 
@@ -109,7 +118,7 @@ Before claiming anything is done:
 2. **Review** — invoke `superpowers:requesting-code-review`
 3. **Security scan** — check for OWASP top 10 issues in AI-generated code (injection, XSS, exposed secrets, broken auth)
 
-## Phase 5: Ship
+## Phase 5: Ship *(model: sonnet)*
 
 1. **Finish branch** — invoke `superpowers:finishing-a-development-branch`
 2. **Staging first** — deploy to preview/staging before production when possible
