@@ -27,6 +27,8 @@ Superpowers skills forked from the [superpowers plugin](https://github.com/anthr
 | `test-driven-development` | Red-green-refactor discipline |
 | `using-git-worktrees` | Isolated workspace management |
 | `systematic-debugging` | Root-cause investigation before fixes |
+| `langchain-pattern` | Enforce idiomatic LangChain architecture and design patterns |
+| `oop-backend-design` | Enforce OOP principles and layered architecture in backend services |
 | `copy-website` | Clone/replicate live website designs |
 | `react-doctor` | Catch issues in React projects |
 
