@@ -14,7 +14,7 @@ When invoked, ALWAYS ask two questions before doing anything:
      - "Performance" — N+1 queries, memory leaks, blocking ops, caching opportunities
      - "Architecture" — patterns, code organization, separation of concerns, naming
 
-2. After getting answers, launch the `feature-dev:code-reviewer` agent with:
+2. After getting answers, launch the `feature-dev:code-reviewer` agent (see `review` skill for dispatch details) with:
    - The diff/changes from the selected scope
    - A review prompt focused on the selected review type
    - Context about the project from CLAUDE.md (tech stack, patterns, do/don't rules)
