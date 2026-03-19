@@ -5,7 +5,7 @@ description: >
   run simultaneously, cutting wall-clock time dramatically. Use this skill whenever
   you have a written implementation plan with multiple tasks, especially when tasks
   fall into independent domains (e.g., separate UI sections, separate modules, separate
-  features). Replaces superpowers:executing-plans and superpowers:subagent-driven-development
+  features). Replaces executing-plans and subagent-driven-development
   when parallelism is beneficial. Trigger when the user says "execute the plan",
   "implement the plan", "run the tasks in parallel", or when you have a PLAN.md /
   implementation plan with 3+ tasks that could plausibly run concurrently.
@@ -162,7 +162,7 @@ After all waves complete:
 
 1. Dispatch a final code reviewer across the entire implementation
 2. Announce: "I'm using the finishing-a-development-branch skill to complete this work."
-3. Invoke **superpowers:finishing-a-development-branch**
+3. Invoke **finishing-a-development-branch**
 
 ---
 
@@ -198,7 +198,7 @@ If you discover a mid-wave conflict after dispatching, note it in your wave summ
 
 ## Integration
 
-- **superpowers:using-git-worktrees** — set up isolated workspace before starting
-- **superpowers:writing-plans** — creates plans this skill executes
-- **superpowers:dispatching-parallel-agents** — reference for parallel dispatch patterns
-- **superpowers:finishing-a-development-branch** — complete development after all waves
+- **using-git-worktrees** — set up isolated workspace before starting
+- **writing-plans** — creates plans this skill executes
+- **dispatching-parallel-agents** — reference for parallel dispatch patterns
+- **finishing-a-development-branch** — complete development after all waves
