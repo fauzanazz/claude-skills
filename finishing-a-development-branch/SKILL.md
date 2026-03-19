@@ -1,6 +1,6 @@
 ---
 name: finishing-a-development-branch
-description: Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup
+description: Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup. Also use before ANY completion claim, commit, or PR creation to enforce verification.
 ---
 
 # Finishing a Development Branch
@@ -15,27 +15,43 @@ Guide completion of development work by presenting clear options and handling ch
 
 ## The Process
 
-### Step 1: Verify Tests
+### Step 1: Verification Gate
 
-**Before presenting options, verify tests pass:**
-
-```bash
-# Run project's test suite
-npm test / cargo test / pytest / go test ./...
+```
+IRON LAW: NO COMPLETION CLAIMS WITHOUT FRESH VERIFICATION EVIDENCE
 ```
 
-**If tests fail:**
-```
-Tests failing (<N> failures). Must fix before completing:
+**Before presenting options or claiming anything is done, run the 5-step gate:**
 
-[Show failures]
+1. **IDENTIFY** — What command proves this claim? (test suite, build, linter)
+2. **RUN** — Execute the FULL command fresh (not a previous run)
+3. **READ** — Full output, check exit code, count failures
+4. **VERIFY** — Does output confirm the claim?
+   - If NO: State actual status with evidence. Stop here.
+   - If YES: Proceed to Step 2.
+5. **PROCEED** — Only after evidence confirms success
 
-Cannot proceed with merge/PR until tests pass.
-```
+| Claim | Requires | Not Sufficient |
+|-------|----------|----------------|
+| Tests pass | Test command output: 0 failures | Previous run, "should pass" |
+| Build succeeds | Build command: exit 0 | Linter passing, logs look good |
+| Bug fixed | Test original symptom: passes | Code changed, assumed fixed |
+| Requirements met | Line-by-line checklist | Tests passing |
 
-Stop. Don't proceed to Step 2.
+**Red flags — STOP if you catch yourself:**
+- Using "should", "probably", "seems to"
+- Expressing satisfaction before verification ("Great!", "Done!")
+- About to commit/push/PR without running verification
+- Thinking "just this once" or "I'm confident"
 
-**If tests pass:** Continue to Step 2.
+| Excuse | Reality |
+|--------|---------|
+| "Should work now" | RUN the verification |
+| "I'm confident" | Confidence ≠ evidence |
+| "Linter passed" | Linter ≠ compiler ≠ tests |
+| "Agent said success" | Verify independently |
+
+**If verification fails:** Stop. Don't proceed to Step 2.
 
 ### Step 2: Determine Base Branch
 
