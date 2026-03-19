@@ -2,9 +2,10 @@
 name: vibe-engineering
 description: >
   Orchestrates disciplined AI-assisted development using the Vibe Engineering methodology.
-  Use this skill whenever starting a new feature, project, or significant code change — especially
-  when the user says "build", "implement", "create", "add feature", or describes what they want
-  built. Also trigger when the user mentions "vibe engineering", "spec first", "AI-friendly
+  ALSO use at the start of ANY conversation to establish skill discipline. Use this skill
+  whenever starting a new feature, project, or significant code change — especially when the
+  user says "build", "implement", "create", "add feature", or describes what they want built.
+  Also trigger when the user mentions "vibe engineering", "spec first", "AI-friendly
   architecture", "memory banks", "session context", or when they're about to dive into code
   without a clear specification. This skill ensures work follows the Spec > Plan > Build > Verify > Ship
   pipeline rather than jumping straight to implementation. Even for seemingly simple tasks,
@@ -29,6 +30,27 @@ Before anything else, check for prior context:
 4. **Check git status** — understand the current branch, uncommitted changes, recent commits
 
 This takes 10 seconds and prevents duplicate work or lost context from a previous session.
+
+## Skill Discipline
+
+<EXTREMELY-IMPORTANT>
+If you think there is even a 1% chance a skill might apply to what you are doing, you ABSOLUTELY MUST invoke it. This is not negotiable.
+</EXTREMELY-IMPORTANT>
+
+**Red Flags** — these thoughts mean STOP, you're rationalizing:
+
+| Thought | Reality |
+|---------|---------|
+| "This is just a simple question" | Questions are tasks. Check for skills. |
+| "I need more context first" | Skill check comes BEFORE clarifying questions. |
+| "Let me explore the codebase first" | Skills tell you HOW to explore. Check first. |
+| "This doesn't need a formal skill" | If a skill exists, use it. |
+| "I remember this skill" | Skills evolve. Read current version. |
+| "The skill is overkill" | Simple things become complex. Use it. |
+
+**Priority:** Process skills first (debugging, planning), then implementation skills (frontend-design, etc.).
+
+**Skill types:** Rigid (TDD, debugging) — follow exactly. Flexible (patterns) — adapt to context.
 
 ## Model Selection
 
@@ -99,14 +121,16 @@ wasted implementation.
 Ask gaps one at a time. Once answered, continue drafting. When complete, show the plan to the
 user and ask for explicit approval before moving to Build.
 
+**Design doc:** Save the approved design to `docs/plans/YYYY-MM-DD-<topic>-design.md` and commit before writing the implementation plan.
+
 **Golden rule: never fill a plan gap by assumption. If you're not sure, ask.**
 
 ## Phase 3: Build *(model: sonnet)*
 
 Execute the plan with guardrails:
 
-1. **TDD** — invoke `superpowers:test-driven-development` to write tests alongside code
-2. **Execute** — invoke `parallel-plan-execution` (preferred: runs independent tasks in parallel waves); fall back to `superpowers:subagent-driven-development` only when tasks are tightly coupled and cannot be parallelized
+1. **TDD** — invoke `test-driven-development` to write tests alongside code
+2. **Execute** — invoke `parallel-plan-execution` to run independent tasks in parallel waves
 3. **Small chunks** — each commit should be a testable, reviewable unit
 4. **Commit checkpoints** — every significant change gets its own commit with a clear message
 
@@ -114,13 +138,13 @@ Execute the plan with guardrails:
 
 Before claiming anything is done:
 
-1. **Verify** — invoke `superpowers:verification-before-completion`
-2. **Review** — invoke `superpowers:requesting-code-review`
+1. **Verify** — invoke `finishing-a-development-branch` (verification gate)
+2. **Review** — invoke `review`
 3. **Security scan** — check for OWASP top 10 issues in AI-generated code (injection, XSS, exposed secrets, broken auth)
 
 ## Phase 5: Ship *(model: sonnet)*
 
-1. **Finish branch** — invoke `superpowers:finishing-a-development-branch`
+1. **Finish branch** — invoke `finishing-a-development-branch`
 2. **Staging first** — deploy to preview/staging before production when possible
 
 ## Memory Management
@@ -180,9 +204,10 @@ Read `references/architecture.md` for the full guide. Key patterns:
 
 Not everything needs the full pipeline:
 
-- **Bug fix with clear repro** — skip Spec, go straight to `superpowers:systematic-debugging`
+- **Bug fix with clear repro** — skip Spec, go straight to `systematic-debugging`
 - **Trivial change** (rename, typo, config) — just do it
 - **Exploration / research** — skip Build/Verify, focus on Spec + Plan to clarify what you're learning
+- **Never skip Spec/Plan because "it's simple"** — "simple" projects are where unexamined assumptions cause the most wasted work
 
 Use judgment. The pipeline exists to prevent costly mistakes on ambiguous work, not to slow down obvious tasks.
 
