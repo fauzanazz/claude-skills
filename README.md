@@ -8,7 +8,6 @@ Superpowers skills forked from the [superpowers plugin](https://github.com/anthr
 
 | Skill | Description |
 |-------|-------------|
-| `brainstorming` | Explore ideas, requirements and design before implementation |
 | `agent-design` | Guide for designing AI agent architectures |
 
 ## Plan
@@ -23,7 +22,7 @@ Superpowers skills forked from the [superpowers plugin](https://github.com/anthr
 
 | Skill | Description |
 |-------|-------------|
-| `vibe-engineering` | Disciplined AI-assisted development methodology |
+| `vibe-engineering` | Disciplined AI-assisted development methodology with skill discipline enforcement |
 | `test-driven-development` | Red-green-refactor discipline |
 | `using-git-worktrees` | Isolated workspace management |
 | `systematic-debugging` | Root-cause investigation before fixes |
@@ -31,26 +30,24 @@ Superpowers skills forked from the [superpowers plugin](https://github.com/anthr
 | `oop-backend-design` | Enforce OOP principles and layered architecture in backend services |
 | `copy-website` | Clone/replicate live website designs |
 | `react-doctor` | Catch issues in React projects |
+| `agents-md` | Generate AGENTS.md files for projects (Next.js, Hono, FastAPI, React Native, Multi-Service) |
 
 ## Verify
 
 | Skill | Description |
 |-------|-------------|
-| `verification-before-completion` | Evidence before completion claims |
-| `requesting-code-review` | Dispatch code review subagents |
-| `receiving-code-review` | Handle review feedback with technical rigor |
+| `review` | Code review: requesting, conducting, and receiving reviews |
 
 ## Ship
 
 | Skill | Description |
 |-------|-------------|
-| `finishing-a-development-branch` | Branch completion workflows (merge, PR, cleanup) |
+| `finishing-a-development-branch` | Branch completion with verification gate (merge, PR, cleanup) |
 
 ## Meta
 
 | Skill | Description |
 |-------|-------------|
-| `using-superpowers` | Skill discovery and invocation |
 | `writing-skills` | TDD-based skill creation |
 
 ## Commands
