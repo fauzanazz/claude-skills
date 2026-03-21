@@ -8,7 +8,8 @@ description: >
   agent behavior. Also trigger when you see terms like "agent harness", "tool calling design",
   "action space", "agent loop", "progressive disclosure", "subagent", "elicitation", or when
   the user asks how to make an LLM interact with external tools effectively. Applies to
-  Claude API agents primarily, but principles are model-agnostic.
+  Claude API agents primarily, but principles are model-agnostic. Do NOT use for
+  generating AGENTS.md files — use the AgentsMD skill instead.
 ---
 
 # Agent Design Skill

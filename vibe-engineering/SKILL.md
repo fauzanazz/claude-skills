@@ -2,14 +2,14 @@
 name: vibe-engineering
 description: >
   Orchestrates disciplined AI-assisted development using the Vibe Engineering methodology.
-  ALSO use at the start of ANY conversation to establish skill discipline. Use this skill
-  whenever starting a new feature, project, or significant code change — especially when the
-  user says "build", "implement", "create", "add feature", or describes what they want built.
-  Also trigger when the user mentions "vibe engineering", "spec first", "AI-friendly
-  architecture", "memory banks", "session context", or when they're about to dive into code
-  without a clear specification. This skill ensures work follows the Spec > Plan > Build > Verify > Ship
-  pipeline rather than jumping straight to implementation. Even for seemingly simple tasks,
-  invoke this skill if there's any ambiguity about requirements or architecture.
+  Use this skill when starting a new feature, project, or significant code change where
+  requirements or architecture are ambiguous — especially when the user says "build",
+  "implement", "create", "add feature", or describes what they want built. Also trigger
+  on "vibe engineering", "spec first", "AI-friendly architecture", "memory banks",
+  "session context". This skill ensures work follows the Spec > Plan > Build > Verify > Ship
+  pipeline rather than jumping straight to implementation. Do NOT trigger for bug fixes
+  (use systematic-debugging), simple questions, debugging sessions, or tasks where a more
+  specific skill already applies (e.g., test-driven-development, writing-plans).
 ---
 
 # Vibe Engineering

@@ -6,7 +6,8 @@ description: >
   conventions, or establish coding standards for a repository. Triggers on: "AGENTS.md",
   "create agents file", "agent instructions", "project conventions for AI", "coding standards",
   or when starting work on a new project that lacks an AGENTS.md. Detects the project type
-  automatically and applies the matching template.
+  automatically and applies the matching template. Owns all AGENTS.md generation — do NOT
+  confuse with agent-design, which is for designing AI agent architectures.
 ---
 
 # AGENTS.md Generator

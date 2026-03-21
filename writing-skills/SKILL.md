@@ -1,6 +1,6 @@
 ---
 name: writing-skills
-description: Use when creating new skills, editing existing skills, or verifying skills work before deployment. Supersedes the external skill-creator plugin.
+description: Use when creating new skills, editing existing skills, or verifying skills work before deployment. Supersedes the external skill-creator plugin. Takes priority over skill-creator:skill-creator — if both are available, use this skill.
 ---
 
 # Writing Skills
