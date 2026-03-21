@@ -94,23 +94,50 @@ git commit -m "feat: add specific feature"
 - Reference relevant skills with @ syntax
 - DRY, YAGNI, TDD, frequent commits
 
+## Multi-Session Plans
+
+For large features, structure the plan into **session milestones** — each milestone is a
+self-contained unit of work that ends with all tests green.
+
+```markdown
+## Session 1: Data Layer
+Tasks 1-4: Models, repositories, migrations
+Exit criteria: unit tests green for all models and repos
+
+## Session 2: Business Logic
+Tasks 5-8: Services, domain logic, validation
+Exit criteria: service tests + integration tests green
+
+## Session 3: API & Frontend
+Tasks 9-12: Endpoints, UI components, wiring
+Exit criteria: API tests + component tests green
+
+## Session 4: Integration & Polish
+Tasks 13-15: E2E tests, error handling, docs
+Exit criteria: full test suite green
+```
+
+**Key rule:** Each session ends by writing failing tests for the next session's work.
+The failing tests ARE the handoff — they encode exactly what the next session must build.
+
 ## Execution Handoff
 
 After saving the plan, offer execution choice:
 
-**"Plan complete and saved to `docs/plans/<filename>.md`. Two execution options:**
+**"Plan complete and saved to `docs/plans/<filename>.md`. Execution options:**
 
-**1. Subagent-Driven (this session)** - I dispatch fresh subagent per task, review between tasks, fast iteration
+**1. Single session** - I dispatch tasks in parallel waves now (best for plans with ~15 or fewer tasks)
 
-**2. Parallel Session (separate)** - Open new session with executing-plans, batch execution with checkpoints
+**2. Multi-session** - We execute one session milestone at a time, with TDD contracts between sessions (best for large features)
 
 **Which approach?"**
 
-**If Subagent-Driven chosen:**
+**If Single session chosen:**
 - **REQUIRED SUB-SKILL:** Use parallel-plan-execution
 - Stay in this session
 - Fresh subagent per task + code review
 
-**If Parallel Session chosen:**
-- Guide them to open new session in worktree
-- **REQUIRED SUB-SKILL:** New session uses parallel-plan-execution
+**If Multi-session chosen:**
+- Start with Session 1 milestone using parallel-plan-execution
+- At session end: commit green code + failing tests for Session 2
+- Each new session picks up from failing tests — no ambiguity about what to build

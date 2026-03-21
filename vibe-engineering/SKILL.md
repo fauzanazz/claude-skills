@@ -158,7 +158,48 @@ Read `references/memory.md` for the full memory management guide. Key principles
 - **Structure by topic** — semantic organization, not chronological
 - **Handoff protocol** — when pausing work, write enough context to resume cold
 
-## Context-Limit Awareness
+## Multi-Session Work & Context Management
+
+Large tasks don't need to fit in one session. **No task is "too big" — it just needs more sessions.**
+
+The key insight: **TDD is the cross-session contract.** Failing tests are the most unambiguous
+handoff artifact possible — no prose summary needed, just test output telling the next session
+exactly what's left to build.
+
+### Planning for Multiple Sessions
+
+During Phase 2 (Plan), assess whether the work fits in one session:
+
+- **Single session** (~15 tasks or fewer, limited file scope): proceed normally
+- **Multi-session** (large feature, many modules, significant scope): break the plan into
+  **session milestones** — each milestone is a self-contained unit of work with its own tests
+
+**Session milestone structure:**
+```
+Session 1: Core data models + repository layer (tests: unit tests for models & repos)
+Session 2: Service layer + business logic (tests: service tests, integration tests)
+Session 3: API endpoints + frontend (tests: API tests, component tests)
+Session 4: Integration, E2E tests, polish
+```
+
+Each session milestone must:
+1. **Start with tests** — write failing tests that define the session's deliverables
+2. **End green** — all tests passing, committed, ready for the next session to build on
+3. **Be independently verifiable** — `pytest` / `npm test` tells you if the session succeeded
+
+### TDD as Session Contract
+
+When breaking work across sessions:
+
+1. **Write tests for the next session before ending the current one.** These failing tests are
+   the specification for what comes next — far more precise than any prose handoff.
+2. **Commit the failing tests** with a clear message: `test: add failing tests for [next milestone]`
+3. **The next session's job is simple:** make the red tests green, then write tests for the session after.
+
+This creates a chain: each session leaves failing tests → next session makes them pass → writes
+new failing tests → repeat until done. No ambiguity, no lost context.
+
+### Context-Limit Awareness
 
 Long sessions degrade quality as context fills up. Monitor and act proactively:
 
@@ -166,28 +207,26 @@ Long sessions degrade quality as context fills up. Monitor and act proactively:
 - The system compresses or drops earlier messages
 - You notice you've forgotten details from earlier in the conversation
 - The session has been running for a long time with many tool calls
-- You're working on a large multi-step task
+- You're midway through a large multi-step plan
 
-**When you sense context pressure, STOP implementing and do this:**
+**When you sense context pressure:**
 
-1. **Do not start new work.** Finish or cleanly pause the current unit of work.
-2. **Write a handoff file** to `.planning/handoff.md` or update MEMORY.md with:
-   - What's done (completed tasks, committed changes)
-   - What's in progress (current task, branch state, uncommitted changes)
-   - What's next (remaining plan items, in priority order)
-   - Key decisions made this session and why
-   - Any gotchas or blockers discovered
-   - Exact commands to verify current state (test commands, build commands)
-3. **Commit any safe-to-commit work** so progress isn't lost.
-4. **Tell the user** explicitly: "I'm approaching context limits. I've written a handoff to [file]. Start a new session and it will pick up where I left off."
+1. **Finish the current TDD cycle** (get to green, don't leave tests red mid-cycle).
+2. **Write failing tests for remaining work** — this IS the handoff. The tests encode what's left.
+3. **Commit everything** — passing code + failing tests for next session.
+4. **Write a brief handoff** to `.planning/handoff.md`:
+   - What's done (committed, tests green)
+   - Failing tests that define next session's work (file paths, what they test)
+   - Remaining plan items beyond the failing tests
+   - Key decisions and gotchas
+5. **Tell the user**: "Session milestone complete. I've committed passing code and failing tests
+   for the next phase. Start a new session — the failing tests define exactly what to build next."
 
 **Do not:**
+- Refuse a task because it's "too big" — break it into sessions instead
 - Push through and hope for the best — quality drops sharply near the limit
-- Leave uncommitted work without documenting it
-- Write a vague handoff ("continue working on the feature") — be specific
-
-The goal: a fresh session reading the handoff file should be able to continue
-without asking the user any questions that were already answered.
+- Leave a session without committed, green tests for completed work
+- Write a vague handoff ("continue working on the feature") — the failing tests should speak for themselves
 
 ## AI-Friendly Architecture
 

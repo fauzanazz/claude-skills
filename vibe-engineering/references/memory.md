@@ -72,10 +72,10 @@ should be able to pick up exactly where you left off.
 - Speculative conclusions from reading a single file
 - Information that duplicates existing docs
 
-## Context-Limit Handoff Protocol
+## Multi-Session Handoff Protocol
 
-AI sessions have finite context windows. When a session runs long, the model starts losing
-earlier context — and quality degrades silently. This protocol prevents lost work.
+Large tasks span multiple sessions. TDD is the primary handoff mechanism — failing tests are
+the most precise, unambiguous specification for what the next session should build.
 
 ### When to Trigger
 
@@ -84,44 +84,48 @@ Trigger a proactive handoff when any of these occur:
 - You've made 30+ tool calls in the session
 - You're midway through a multi-step plan and sense degradation
 - You notice yourself re-reading files you already read earlier
+- The current session milestone is complete and more work remains
+
+### TDD-Based Handoff (Preferred)
+
+The best handoff is committed failing tests. The next session runs the test suite, sees red,
+and knows exactly what to build. This replaces lengthy prose descriptions.
+
+**Before ending a session:**
+1. Get all current work to green (passing tests, committed)
+2. Write failing tests that define the next session's deliverables
+3. Commit the failing tests: `test: add failing tests for [next milestone]`
+4. Write a brief handoff file with pointers to the failing tests
 
 ### The Handoff File
 
-Write to `.planning/handoff.md` (or update MEMORY.md). Include ALL of the following:
+Write to `.planning/handoff.md`. Keep it brief — the tests carry the specification.
 
 ```markdown
 # Session Handoff — [Date]
 
 ## Completed This Session
-- [x] Task 1 — committed as abc1234
-- [x] Task 2 — committed as def5678
+- [x] Task 1 — committed as abc1234, tests green
+- [x] Task 2 — committed as def5678, tests green
 
-## In Progress
-- [ ] Task 3 — branch: feature/foo, files modified: src/bar.ts, src/baz.ts
-  - Current state: [what's done, what's left]
-  - Uncommitted changes: [yes/no, describe if yes]
+## Next Session: Make These Tests Pass
+- `tests/services/test_webhook.py` — retry logic, error handling (3 tests)
+- `tests/api/test_endpoints.py` — webhook CRUD endpoints (5 tests)
+- Run: `pytest tests/ -x` to see what's red
 
-## Remaining Plan
-- [ ] Task 4
-- [ ] Task 5
-- [ ] Task 6
+## Remaining After That
+- [ ] Task 5: Frontend webhook UI
+- [ ] Task 6: E2E integration tests
 
 ## Key Decisions
 - Chose X over Y because [reason]
-- Discovered that Z requires [workaround]
 
 ## Gotchas
 - [Non-obvious thing that will bite the next session]
 
-## Verification Commands
-- `npm test` — all passing as of this handoff
+## Verification
+- `pytest` — 12 green, 8 red (the 8 red are next session's work)
 - `npm run typecheck` — clean
-- `npm run build` — succeeds
-
-## Resume Instructions
-1. Read this file
-2. Check git status on branch feature/foo
-3. Continue with Task 3: [specific next action]
 ```
 
 ### Rules
@@ -129,10 +133,10 @@ Write to `.planning/handoff.md` (or update MEMORY.md). Include ALL of the follow
 1. **Write the handoff BEFORE you degrade** — if you wait until context is gone, the handoff
    will be low quality. Better to hand off one task early than produce garbage output.
 2. **Commit first** — save completed work to git so the next session starts clean.
-3. **Be specific** — "continue implementing the webhook system" is useless.
-   "Add retry logic to WebhookDispatcher.emit() — tests are written but failing, see
-   src/services/webhook-dispatcher.test.ts:45" is useful.
+3. **Failing tests > prose** — "make test_webhook_retry pass" is better than "add retry logic
+   to WebhookDispatcher.emit()". The test already encodes what "retry logic" means.
 4. **Tell the user** — don't silently write a file. Explicitly say you're handing off and why.
+5. **Never refuse work as "too big"** — break it into session milestones with TDD contracts instead.
 
 ## Memory for Teams
 
