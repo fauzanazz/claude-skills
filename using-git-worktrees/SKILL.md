@@ -100,18 +100,24 @@ cd "$path"
 
 ### 3. Run Project Setup
 
-Auto-detect and run appropriate setup:
+Auto-detect package manager from lockfile, then run setup:
 
 ```bash
-# Node.js
-if [ -f package.json ]; then npm install; fi
+# Node.js — detect from lockfile
+if [ -f pnpm-lock.yaml ]; then pnpm install
+elif [ -f bun.lockb ]; then bun install
+elif [ -f yarn.lock ]; then yarn install
+elif [ -f package-lock.json ]; then npm install
+elif [ -f package.json ]; then pnpm install  # default to pnpm
+fi
 
 # Rust
 if [ -f Cargo.toml ]; then cargo build; fi
 
-# Python
-if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-if [ -f pyproject.toml ]; then poetry install; fi
+# Python — detect from lockfile/config
+if [ -f uv.lock ] || [ -f pyproject.toml ]; then uv sync
+elif [ -f requirements.txt ]; then uv pip install -r requirements.txt
+fi
 
 # Go
 if [ -f go.mod ]; then go mod download; fi
@@ -173,7 +179,7 @@ Ready to implement <feature-name>
 ### Hardcoding setup commands
 
 - **Problem:** Breaks on projects using different tools
-- **Fix:** Auto-detect from project files (package.json, etc.)
+- **Fix:** Auto-detect from lockfiles (pnpm-lock.yaml, yarn.lock, etc.)
 
 ## Example Workflow
 
@@ -183,8 +189,8 @@ You: I'm using the using-git-worktrees skill to set up an isolated workspace.
 [Check .worktrees/ - exists]
 [Verify ignored - git check-ignore confirms .worktrees/ is ignored]
 [Create worktree: git worktree add .worktrees/auth -b feature/auth]
-[Run npm install]
-[Run npm test - 47 passing]
+[Detected pnpm-lock.yaml → run pnpm install]
+[Run pnpm test - 47 passing]
 
 Worktree ready at /Users/jesse/myproject/.worktrees/auth
 Tests passing (47 tests, 0 failures)

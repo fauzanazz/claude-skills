@@ -350,7 +350,10 @@ Can't check all boxes? You skipped TDD. Start over.
 
 ## Debugging Integration
 
-Bug found? Write failing test reproducing it. Follow TDD cycle. Test proves fix and prevents regression.
+**Priority rule:** For bugs, invoke `systematic-debugging` FIRST to find the root cause. Then return here to write the regression test and implement the fix via TDD.
+
+- **Bug** — systematic-debugging (root cause) → TDD (regression test + fix)
+- **New feature** — TDD directly (no root cause to find)
 
 Never fix bugs without a test.
 

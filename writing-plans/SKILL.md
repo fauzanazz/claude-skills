@@ -13,7 +13,7 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 
 **Announce at start:** "I'm using the writing-plans skill to create the implementation plan."
 
-**Context:** This should be run in a dedicated worktree (created during vibe-engineering Phase 2).
+**Context:** This skill produces the plan artifact for vibe-engineering Phase 2. If following the vibe-engineering pipeline, invoke this skill during Phase 2 after the spec is confirmed and an approach is approved. This should be run in a dedicated worktree.
 
 **Save plans to:** `docs/plans/YYYY-MM-DD-<feature-name>.md`
 

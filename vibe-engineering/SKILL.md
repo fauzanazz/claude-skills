@@ -33,24 +33,25 @@ This takes 10 seconds and prevents duplicate work or lost context from a previou
 
 ## Skill Discipline
 
-<EXTREMELY-IMPORTANT>
-If you think there is even a 1% chance a skill might apply to what you are doing, you ABSOLUTELY MUST invoke it. This is not negotiable.
-</EXTREMELY-IMPORTANT>
+Invoke a skill when its trigger description matches your current task intent. Check available skills before starting work — don't assume you know the right approach without checking.
 
-**Red Flags** — these thoughts mean STOP, you're rationalizing:
+**Red Flags** — these thoughts mean pause and check skills:
 
-| Thought | Reality |
+| Thought | Better Response |
 |---------|---------|
-| "This is just a simple question" | Questions are tasks. Check for skills. |
-| "I need more context first" | Skill check comes BEFORE clarifying questions. |
-| "Let me explore the codebase first" | Skills tell you HOW to explore. Check first. |
-| "This doesn't need a formal skill" | If a skill exists, use it. |
 | "I remember this skill" | Skills evolve. Read current version. |
-| "The skill is overkill" | Simple things become complex. Use it. |
+| "This doesn't need a formal skill" | Check if one exists — it might save time. |
+| "Let me explore the codebase first" | Check if a skill tells you HOW to explore. |
 
 **Priority:** Process skills first (debugging, planning), then implementation skills (frontend-design, etc.).
 
 **Skill types:** Rigid (TDD, debugging) — follow exactly. Flexible (patterns) — adapt to context.
+
+**Execution order for common scenarios:**
+- **Bug** → systematic-debugging (root cause) → test-driven-development (regression test + fix)
+- **New UI feature** → generative-ui-preview (optional) → test-driven-development → review
+- **New backend feature** → test-driven-development → review
+- **Complex multi-step work** → writing-plans → parallel-plan-execution → finishing-a-development-branch
 
 ## Model Selection
 
@@ -150,6 +151,10 @@ Before claiming anything is done:
 ## Memory Management
 
 Context is the #1 bottleneck in AI-assisted development. Session amnesia kills productivity.
+
+**Two systems, different purposes:**
+- **obsidian-memory** — for persistent cross-session memory (decisions, patterns, project context). Use `obsidian-memory load-context` at session start and `obsidian-memory save-session` at session end if the project has a `.obsidian-memory.json` config.
+- **`.planning/handoff.md`** — for single-session handoffs when context pressure hits. Contains what's done, failing tests for next session, and remaining plan items. Lightweight, disposable after the next session picks it up.
 
 Read `references/memory.md` for the full memory management guide. Key principles:
 

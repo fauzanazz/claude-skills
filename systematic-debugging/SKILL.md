@@ -287,6 +287,13 @@ These techniques are part of systematic debugging and available in this director
 - **test-driven-development** - For creating failing test case (Phase 4, Step 1)
 - **finishing-a-development-branch** - Verify fix worked before claiming success
 
+## Priority: systematic-debugging vs test-driven-development
+
+- **Bug or unexpected behavior** — invoke systematic-debugging FIRST (find root cause), THEN invoke test-driven-development (write regression test + implement fix)
+- **New feature** — invoke test-driven-development directly (no root cause to find)
+
+The distinction: debugging finds WHAT is wrong; TDD ensures the fix is correct and prevents regression.
+
 ## Real-World Impact
 
 From debugging sessions:

@@ -48,6 +48,12 @@ Use Agent tool with `feature-dev:code-reviewer` type. Fill the template at `revi
 - **Minor** — note for later
 - Push back if reviewer is wrong (with reasoning)
 
+**4. For React projects, also run diagnostics:**
+```bash
+npx -y react-doctor@latest . --verbose --diff
+```
+Fix errors first, then re-run to verify the score improved. Do this after code review, before merge.
+
 ---
 
 ## Part 2: Interactive Review
