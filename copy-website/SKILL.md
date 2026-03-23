@@ -17,6 +17,20 @@ Reverse-engineers any live website into runnable code via a 6-phase pipeline: Pl
 
 ## Phase Pipeline
 
+### Fidelity Tiers — Decide Before Capture
+
+Determine which tier you'll operate at before running any capture:
+
+| Tier | Data Available | Quality | When |
+|------|---------------|---------|------|
+| 1 | Playwright screenshots + DOM + Firecrawl | Near-pixel-perfect | URL is reachable, no bot protection |
+| 2 | DOM only (Playwright failed, curl fallback) | Layout accurate, colors/images approximate | URL reachable but Playwright blocked |
+| 3 | Screenshot only (user uploaded image, no URL) | Best-effort visual match | No URL provided, or URL unreachable |
+
+Always tell the user which tier you're operating at. If starting at Tier 3, skip Phases 1-2 and go directly to Phase 5 (reconstruction from image).
+
+---
+
 ### Phase 1 — Playwright Capture
 
 Run the capture script to take screenshots and extract DOM/tokens:
@@ -167,18 +181,6 @@ open <OUTPUT_DIR>/code/index.html
 cd <OUTPUT_DIR>/code && npm install && npm run build
 # Fix any errors (missing package.json fields, bad imports, TS errors on APPROXIMATED values)
 ```
-
----
-
-## Fidelity Tiers
-
-| Tier | Data Available | Quality |
-|------|---------------|---------|
-| 1 | Playwright screenshots + DOM + Firecrawl | Near-pixel-perfect |
-| 2 | DOM only (Playwright failed, curl fallback) | Layout accurate, colors/images approximate |
-| 3 | Screenshot only (user uploaded image, no URL) | Best-effort visual match |
-
-Always tell the user which tier you're operating at.
 
 ---
 

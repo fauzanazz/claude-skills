@@ -1,9 +1,6 @@
----
-name: dispatching-parallel-agents
-description: "Internal reference only — parallel dispatch patterns used by parallel-plan-execution. Do not invoke directly."
----
+# Parallel Dispatch Patterns
 
-# Dispatching Parallel Agents
+> Reference file for parallel-plan-execution. Contains patterns for dispatching multiple independent agents.
 
 ## Overview
 

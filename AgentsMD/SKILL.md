@@ -39,7 +39,9 @@ Inspect the project root and determine the type using this priority order:
 | `pyproject.toml` with `fastapi` in dependencies | **FastAPI** | `fastapi-agents.md` |
 | Multiple service directories with separate package configs | **Multi-Service** | `multi-service-agents.md` |
 
-If the project type is ambiguous, ask the user to confirm.
+| No specific framework detected | **Generic** | `generic-agents.md` |
+
+If the project type is ambiguous and doesn't match any framework above, use the generic template.
 
 ## Workflow
 
@@ -64,6 +66,7 @@ If the project type is ambiguous, ask the user to confirm.
 | FastAPI Backend | `fastapi-agents.md` | FastAPI + Python async backends |
 | React Native | `react-native-agents.md` | Expo + React Native mobile apps |
 | Multi-Service | `multi-service-agents.md` | Monorepos or multi-repo service orchestrations |
+| Generic | `generic-agents.md` | Plain HTML, vanilla JS, Go, Rust, or any stack without a dedicated template |
 
 ## Common Mistakes
 

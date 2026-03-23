@@ -14,6 +14,8 @@ description: >
 
 Enforce idiomatic LangChain architecture so applications are composable, observable, and production-ready.
 
+> **Tested with:** LangChain 0.3.x / LangGraph 0.2.x (patterns may need adjustment for newer versions — check the [LangChain changelog](https://github.com/langchain-ai/langchain/releases) if APIs have changed).
+
 > **Core principle:** Use LangChain Expression Language (LCEL) chains as the default composition primitive.
 > Reach for LangGraph only when you need cycles, branching, or persistent state.
 

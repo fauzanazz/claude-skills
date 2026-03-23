@@ -136,10 +136,10 @@ This will permanently delete:
 - All commits: <commit-list>
 - Worktree at <path>
 
-Type 'discard' to confirm.
+Are you sure you want to discard this work? This cannot be undone.
 ```
 
-Wait for exact confirmation.
+Wait for explicit confirmation (any clear affirmative: "yes", "discard", "do it", etc.).
 
 If confirmed:
 ```bash
@@ -190,7 +190,7 @@ git worktree remove <worktree-path>
 
 **No confirmation for discard**
 - **Problem:** Accidentally delete work
-- **Fix:** Require typed "discard" confirmation
+- **Fix:** Require explicit confirmation before discarding
 
 ## Red Flags
 
@@ -203,7 +203,7 @@ git worktree remove <worktree-path>
 **Always:**
 - Verify tests before offering options
 - Present exactly 4 options
-- Get typed confirmation for Option 4
+- Get explicit confirmation for Option 4
 - Clean up worktree for Options 1 & 4 only
 
 ## Integration

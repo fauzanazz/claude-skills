@@ -200,5 +200,5 @@ If you discover a mid-wave conflict after dispatching, note it in your wave summ
 
 - **using-git-worktrees** — set up isolated workspace before starting
 - **writing-plans** — creates plans this skill executes
-- **dispatching-parallel-agents** — reference for parallel dispatch patterns
+- **`references/parallel-dispatch-patterns.md`** — detailed patterns for dispatching parallel agents (prompt structure, common mistakes, when NOT to parallelize)
 - **finishing-a-development-branch** — complete development after all waves

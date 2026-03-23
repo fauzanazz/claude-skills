@@ -30,9 +30,10 @@ Enforce clean object-oriented architecture in backend services so code is testab
 - Structuring domain models, repositories, or service layers
 
 **When NOT to use:**
-- Frontend-only code (use react-doctor or similar)
+- Frontend-only code
 - Scripts, CLIs, or one-off automation
 - Prototypes where architecture is explicitly deferred
+- Truly trivial CRUD apps where a single file with direct DB access is clearer
 
 ## Architecture Decision Flowchart
 
@@ -233,7 +234,7 @@ Adapters   │  DB   Cache   Email API  │  ← Driven adapters (output)
 | Catching all exceptions generically | Define domain exceptions; let infrastructure errors propagate |
 | Circular dependencies between services | Introduce an interface or event to break the cycle |
 | Over-engineering simple CRUD | Not everything needs hexagonal architecture — match complexity to the problem |
-| Skipping the repository layer | Even for simple apps, the abstraction pays off in testability |
+| Skipping the repository layer for complex apps | For apps with multiple data sources or complex queries, the abstraction pays off in testability. For truly trivial single-table CRUD, direct data access in the service layer is acceptable — add the abstraction when complexity grows. |
 
 ## Code Review Checklist
 
