@@ -1,6 +1,6 @@
 ---
 name: generative-ui-preview
-description: Use when building frontend features, components, or pages — generates a visual HTML preview the user can see in their browser before implementation begins. Triggers on "build a dashboard", "create a form", "add a sidebar", "design a landing page", or any UI component work. Also use when the user says "preview first", "show me what it looks like", or "mockup".
+description: Use when the user wants to see a visual preview or mockup before implementation, or when confirming UI design before writing real components. Triggers on "preview first", "show me what it looks like", "mockup", "what will it look like", or when the user describes a UI and visual confirmation would prevent rework. Do NOT trigger on all frontend work — only when a preview step adds value.
 ---
 
 # Generative UI Preview

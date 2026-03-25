@@ -1,9 +1,7 @@
 ---
 name: parallel-plan-execution
 description: >
-  Execute implementation plans with parallel wave-based dispatch — independent tasks
-  run simultaneously, cutting wall-clock time dramatically. Use this skill whenever
-  you have a written implementation plan with multiple tasks, especially when tasks
+  Use when you have a written implementation plan with multiple tasks, especially when tasks
   fall into independent domains (e.g., separate UI sections, separate modules, separate
   features). Replaces executing-plans and subagent-driven-development
   when parallelism is beneficial. Trigger when the user says "execute the plan",
@@ -57,7 +55,7 @@ Repeat for each wave:
 
 Dispatch **all tasks in the wave simultaneously** — a single message with one Agent call per task.
 
-Each agent prompt (adapt the implementer-prompt template from subagent-driven-development):
+Each agent prompt:
 
 ```
 You are implementing [Task N: task name] as part of a parallel wave.

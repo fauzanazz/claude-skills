@@ -1,8 +1,7 @@
 ---
 name: oop-backend-design
 description: >
-  Enforces object-oriented design principles and architecture patterns when building, reviewing,
-  or refactoring backend services. Use when the user asks to design, implement, scaffold, review,
+  Use when the user asks to design, implement, scaffold, review,
   or refactor any backend application using OOP — including API services, domain models, repository
   layers, service layers, or module boundaries. Triggers on: "backend design", "OOP",
   "object-oriented", "SOLID", "clean architecture", "hexagonal architecture", "ports and adapters",

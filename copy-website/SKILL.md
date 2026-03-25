@@ -7,7 +7,7 @@ description: Use when the user wants to copy, clone, replicate, recreate, rip, s
 
 ## Overview
 
-Reverse-engineers any live website into runnable code via a 6-phase pipeline: Playwright capture → optional Firecrawl content → CSS/animation/design token extraction → tech stack detection → Claude Vision reconstruction → iterative visual scoring loop (scores 5 metrics, fixes until ≥ 90/100 each or `max_iterations` reached).
+Reverse-engineers any live website into runnable code via a 6-phase pipeline: Playwright capture → optional Firecrawl content → CSS/animation/design token extraction → tech stack detection → Claude Vision reconstruction → iterative visual scoring loop (scores 7 metrics, fixes until all pass or `max_iterations` reached).
 
 **Reading pointers:**
 - Before Phase 5 (reconstruction): open `references/reconstruction-guide.md`
@@ -202,7 +202,7 @@ cd <OUTPUT_DIR>/code && npm install && npm run build
     metadata.json                # if Firecrawl ran
     iteration-1-output.png       # Phase 6 scoring screenshot, iteration 1
     iteration-2-output.png       # iteration 2 (if needed)
-    scores-iteration-1.json      # 5-metric scores + issues list
+    scores-iteration-1.json      # 7-metric scores + issues list
     scores-iteration-2.json      # iteration 2 scores (if needed)
     context-state.json           # written if context window goes critical
     code/

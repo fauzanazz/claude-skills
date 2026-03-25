@@ -1,11 +1,9 @@
 ---
 name: review
 description: >
-  Code review: requesting, conducting, and receiving reviews. Use when completing tasks,
-  implementing major features, before merging, or when receiving code review feedback.
-  Covers the full review lifecycle: dispatching reviews, interactive review sessions,
-  and handling feedback with technical rigor. Do NOT trigger on /review — that slash
-  command handles its own flow and references this skill internally.
+  Use when completing tasks, implementing major features, before merging, or when
+  receiving code review feedback. Do NOT trigger on /review — that slash command
+  handles its own flow and references this skill internally.
 ---
 
 # Code Review

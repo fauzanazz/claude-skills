@@ -1,6 +1,6 @@
 ---
 name: using-git-worktrees
-description: Use when starting feature work that needs isolation from current workspace or before executing implementation plans - creates isolated git worktrees with smart directory selection and safety verification
+description: Use when starting feature work that needs isolation from current workspace, or before executing implementation plans
 ---
 
 # Using Git Worktrees
@@ -61,7 +61,7 @@ git check-ignore -q .worktrees 2>/dev/null || git check-ignore -q worktrees 2>/d
 
 **If NOT ignored:**
 
-Per Jesse's rule "Fix broken things immediately":
+Fix broken things immediately:
 1. Add appropriate line to .gitignore
 2. Commit the change
 3. Proceed with worktree creation
@@ -216,8 +216,7 @@ Ready to implement auth feature
 
 **Called by:**
 - **vibe-engineering** (Phase 2) - REQUIRED when design is approved and implementation follows
-- **subagent-driven-development** - REQUIRED before executing any tasks
-- **executing-plans** - REQUIRED before executing any tasks
+- **parallel-plan-execution** - REQUIRED before executing any tasks
 - Any skill needing isolated workspace
 
 **Pairs with:**

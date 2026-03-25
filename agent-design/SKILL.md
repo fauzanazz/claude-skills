@@ -1,8 +1,7 @@
 ---
 name: agent-design
 description: >
-  Comprehensive guide for designing AI agent architectures — tool/action space design,
-  multi-agent coordination, and iterative evaluation. Use this skill whenever the user asks
+  Use when the user asks
   about building agents, designing tool sets for LLMs, structuring agent workflows, reviewing
   existing agent architectures, creating action spaces, coordinating subagents, or evaluating
   agent behavior. Also trigger when you see terms like "agent harness", "tool calling design",

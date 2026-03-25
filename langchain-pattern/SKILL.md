@@ -1,8 +1,7 @@
 ---
 name: langchain-pattern
 description: >
-  Enforces recommended LangChain architecture and design patterns when developing applications
-  using the LangChain library. Use when the user asks to build, scaffold, implement, or modify
+  Use when the user asks to build, scaffold, implement, or modify
   any LangChain-based application — including agents, RAG pipelines, structured output, tool
   integration, or production deployment with LangSmith. Triggers on: "langchain", "langgraph",
   "create_react_agent", "RetrievalQA", "RAG with langchain", "langsmith tracing",

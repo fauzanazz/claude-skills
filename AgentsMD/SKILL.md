@@ -1,13 +1,11 @@
 ---
 name: agents-md
 description: >
-  Generate or update AGENTS.md files for projects based on detected framework and conventions.
   Use when the user asks to create an AGENTS.md, set up AI agent instructions, document project
   conventions, or establish coding standards for a repository. Triggers on: "AGENTS.md",
   "create agents file", "agent instructions", "project conventions for AI", "coding standards",
-  or when starting work on a new project that lacks an AGENTS.md. Detects the project type
-  automatically and applies the matching template. Owns all AGENTS.md generation — do NOT
-  confuse with agent-design, which is for designing AI agent architectures.
+  or when starting work on a new project that lacks an AGENTS.md. Do NOT confuse with
+  agent-design, which is for designing AI agent architectures.
 ---
 
 # AGENTS.md Generator
